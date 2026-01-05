@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: "HOME",
       whatWeDo: "WHAT WE DO",
+      aiStudio: "AI STUDIO",
       gallery: "GALLERY",
       collaboration: "COLLABORATION",
       recruitment: "RECRUITMENT",
@@ -98,6 +99,7 @@ export const translations = {
     nav: {
       home: "หน้าหลัก",
       whatWeDo: "ภารกิจของเรา",
+      aiStudio: "สตูดิโอ AI",
       gallery: "แกลเลอรี",
       collaboration: "ความร่วมมือ",
       recruitment: "ร่วมงานกับเรา",

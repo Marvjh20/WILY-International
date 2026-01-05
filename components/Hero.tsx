@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
-import { Camera } from 'lucide-react';
 import { IMAGES } from '../constants/images';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero: React.FC = () => {
-  const [bgImage, setBgImage] = useState(IMAGES.HERO_BG);
+  const [bgImage] = useState(IMAGES.HERO_BG);
   const { t } = useLanguage();
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setBgImage(imageUrl);
-    }
   };
 
   return (
@@ -27,19 +18,6 @@ const Hero: React.FC = () => {
     >
       {/* Soft gradient overlay from left for text readability, matching the screenshot's moody feel */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
-
-      {/* Image Customizer Button (Subtle) */}
-      <div className="absolute bottom-8 right-8 z-20">
-        <label className="flex items-center justify-center p-3 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md cursor-pointer transition-all border border-white/30">
-          <input 
-            type="file" 
-            accept="image/*" 
-            onChange={handleImageUpload} 
-            className="hidden" 
-          />
-          <Camera className="h-5 w-5 text-white" />
-        </label>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-xl text-left">

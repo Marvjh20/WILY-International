@@ -1,7 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 /**
  * Edits an image using Gemini 2.5 Flash Image based on a text prompt.
  * @param imageBase64 The base64 string of the original image (raw data).
@@ -15,6 +13,16 @@ export const editImageWithGemini = async (
   prompt: string
 ): Promise<string | null> => {
   try {
+    // Initialize inside the function to prevent app-wide crash if key is missing on load
+    const apiKey = process.env.API_KEY;
+    
+    if (!apiKey) {
+      console.error("API Key is missing. Please check your configuration.");
+      return null;
+    }
+
+    const ai = new GoogleGenAI({ apiKey: apiKey });
+
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
       contents: {

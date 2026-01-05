@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Home, HeartHandshake, Truck } from 'lucide-react';
+import { Home, HeartHandshake, Truck, ImageOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { IMAGES } from '../constants/images';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -95,11 +95,19 @@ const Services: React.FC = () => {
                   
                   {/* Image Container */}
                   <div className="p-4">
-                    <div className="relative aspect-[3/4] overflow-hidden rounded-[1.5rem]">
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-[1.5rem] bg-gray-100">
                       <img 
                         src={service.image} 
                         alt={service.title} 
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        onError={(e) => {
+                          // Fallback if image not found
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.parentElement?.classList.add('flex', 'items-center', 'justify-center');
+                          const icon = document.createElement('div');
+                          icon.innerHTML = '<span class="text-gray-400 text-sm font-medium">Image not available</span>';
+                          e.currentTarget.parentElement?.appendChild(icon);
+                        }}
                       />
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />

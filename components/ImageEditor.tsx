@@ -56,7 +56,7 @@ const ImageEditor: React.FC = () => {
   };
 
   return (
-    <section id="editor" className="py-16 bg-gray-50 border-t border-gray-200">
+    <section id="editor" className="py-24 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl flex items-center justify-center gap-3">
@@ -69,13 +69,13 @@ const ImageEditor: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div className="bg-gray-50 rounded-xl shadow-xl overflow-hidden border border-gray-100">
           <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Input Section */}
             <div className="space-y-6">
               <div 
-                className={`border-2 border-dashed rounded-lg p-8 flex flex-col items-center justify-center text-center transition-colors ${originalImage ? 'border-wily-blue bg-blue-50' : 'border-gray-300 hover:border-wily-blue hover:bg-gray-50'}`}
+                className={`border-2 border-dashed rounded-lg p-8 flex flex-col items-center justify-center text-center transition-colors ${originalImage ? 'border-wily-blue bg-blue-50' : 'border-gray-300 hover:border-wily-blue hover:bg-white'}`}
                 onClick={() => fileInputRef.current?.click()}
               >
                 {originalImage ? (
@@ -136,7 +136,7 @@ const ImageEditor: React.FC = () => {
             </div>
 
             {/* Output Section */}
-            <div className="bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center min-h-[300px] relative">
+            <div className="bg-white rounded-lg border border-gray-200 flex items-center justify-center min-h-[300px] relative">
               {status === ImageEditStatus.PROCESSING && (
                 <div className="text-center">
                    <RefreshCw className="h-10 w-10 text-wily-blue animate-spin mx-auto mb-3" />

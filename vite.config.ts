@@ -7,6 +7,9 @@ export default defineConfig({
   // This ensures assets (css/js/images) are looked for relative to the index.html
   // crucial for GitHub Pages repositories (e.g. username.github.io/repo-name)
   base: './', 
+  define: {
+    'process.env': {}
+  },
   build: {
     outDir: 'dist',
     sourcemap: true,

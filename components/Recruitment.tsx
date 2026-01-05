@@ -36,7 +36,7 @@ const Recruitment: React.FC = () => {
 
           {/* Graphic Content - Right Side */}
           <div className="w-full md:w-1/2">
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+            <div className="relative rounded-[2rem] overflow-hidden group">
               <img 
                 src={IMAGES.CAREER_FEATURE} 
                 alt="WILY Team Collaboration" 
